@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<!-- 这里注意，对meta标签加了个结束，因为在thymeleaf3.0以前对页面标签语法要求比较严格，开始标签必须有对应的结束标签。 -->
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" >
+	<title>测试Thymeleaf的使用</title>
+</head>
+
+<body>
+	<h3 th:text="${test}"></h3>
+	
+	<hr/>
+	
+	用户的添加：<a href="/user/toAdd">添加</a><hr/>
+	用户的更新：<a href="/user/toUpdate">更新</a><hr/>
+	
+	<div shiro:hasPermission="进入管理员主页">
+		进入管理员主页：<a href="/toAdmin">管理员</a><hr/>
+	</div>
+	
+</body>
+	
+</html>

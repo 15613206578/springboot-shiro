@@ -1,0 +1,89 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  
+ <!-- 继承Spring Boot的默认父工程 -->
+	<!-- Spring Boot 父工程 -->
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>1.5.4.RELEASE</version>
+	</parent>
+  
+  <groupId>com.zhaoy</groupId>
+  <artifactId>springboot-shiro</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  
+  <!-- 导入依赖 -->
+	<dependencies>
+	
+		<!-- 导入web支持：SpringMVC开发支持，Servlet相关的程序 -->
+		<!-- web支持，SpringMVC， Servlet支持等 -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+		
+		<!--thymeleaf 前端页面模板引擎 -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-thymeleaf</artifactId>
+		</dependency>
+		<!-- thymel对shiro的扩展 -->
+		<dependency>
+			<groupId>com.github.theborakompanioni</groupId>
+			<artifactId>thymeleaf-extras-shiro</artifactId>
+			<version>2.0.0</version>
+		</dependency>
+		
+		<!-- shiro与spring整合依赖 -->
+		<dependency>
+			<groupId>org.apache.shiro</groupId>
+			<artifactId>shiro-spring</artifactId>
+			<version>1.4.0</version>
+		</dependency>
+		
+		<!--data jpa 起步依赖 -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
+		</dependency>
+		
+		<!-- mysql -->
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>8.0.11</version>
+		</dependency>
+		
+		<!-- druid 连接池 -->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>druid</artifactId>
+            <version>1.1.10</version>
+        </dependency>
+		
+	</dependencies>
+	
+	<!-- 修改参数 -->
+	<properties>
+		<!-- 修改thymeleaf的版本 -->
+		<thymeleaf.version>3.0.2.RELEASE</thymeleaf.version>
+		<thymeleaf-layout-dialect.version>2.0.4</thymeleaf-layout-dialect.version>
+	</properties>
+  
+	<build>
+	  <plugins>
+	      <!-- 打包插件 -->
+	     <plugin>
+	         <groupId>org.springframework.boot</groupId>
+	         <artifactId>spring-boot-maven-plugin</artifactId>
+	         <configuration>
+	             <executable>true</executable>
+	             <!-- fork: 如果没有配置该项，devtools不会起作用，即应用不会restart加载器 -->
+	                <fork>true</fork>
+	            </configuration>
+	        </plugin>
+	    </plugins>
+	</build>
+  
+</project>
